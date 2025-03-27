@@ -1,4 +1,4 @@
-fdk==0.6.38
-pandas==1.2.5
-requests==2.25.1
-oci==2.47.0
+fdk
+pandas
+requests
+oci
