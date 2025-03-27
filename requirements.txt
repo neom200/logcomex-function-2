@@ -2,3 +2,4 @@ fdk
 pandas
 requests
 oci
+pyarrow
