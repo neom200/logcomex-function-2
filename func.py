@@ -125,9 +125,9 @@ def save_to_bucket(all_data, client):
                 object_name=f"LOGCOMEX/DATA_{k.upper()}.parquet",
                 put_object_body=pq
             )
-            print(f'Salvo LogComex_{k}.')
+            print(f'Salvo LogComex_{k}', flush=True)
         except Exception as e:
-            print(f"ERRO: {str(e)}")
+            print(f"ERRO: {str(e)}". flush=True)
 
 def handler(ctx, data: io.BytesIO = None):
     print("Começando function",  flush=True)
