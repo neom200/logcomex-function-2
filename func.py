@@ -147,7 +147,7 @@ def handler(ctx, data: io.BytesIO = None):
         minutes = int((elapsed_seconds % 3600) // 60)
         seconds = elapsed_seconds % 60
         tempo_total = f"Tempo levado: {hours:02}:{minutes:02}:{seconds:05.2f}"
-        logging.debug(tempo_total)
+        print(tempo_total, flush=True)
 
         print("Salvando no bucket",  flush=True)
         save_to_bucket(full_data, client)
