@@ -105,14 +105,14 @@ def get_data(url, real_headers, real_payload):
     headers = copy.copy(real_headers)
     payload = copy.copy(real_payload)
     for pay in payload.keys():
-        logger.info('> Get Data:', pay)
+        print(f'> Get Data: {pay}', flush=True)
         try:
             res = requests.post(url, headers=headers[pay], json=payload[pay]).json()
             dados = _collect_full_range_data(url, headers[pay], payload[pay], res['meta']['last_page'])
             df = pd.DataFrame(dados)
             all_data[pay] = df
         except Exception as e:
-            logger.error('ERRO: ', str(e))
+            print(f'ERRO:  {str(e)}', flush=True)
     return all_data
 
 def save_to_bucket(all_data, client):
@@ -125,9 +125,9 @@ def save_to_bucket(all_data, client):
                 object_name=f"LOGCOMEX/DATA_{k.upper()}.parquet",
                 put_object_body=pq
             )
-            logger.info(f'Salvo LogComex_{k}.')
+            print(f'Salvo LogComex_{k}.')
         except Exception as e:
-            logger.error("ERRO: ", str(e))
+            print(f"ERRO: {str(e)}")
 
 def handler(ctx, data: io.BytesIO = None):
     print("Começando function",  flush=True)
