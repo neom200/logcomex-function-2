@@ -1,8 +1,8 @@
 schema_version: 20180708
 name: logcomex-ce
-version: 0.0.5
+version: 0.0.6
 runtime: python
-build_image: fnproject/python:3.11-dev
-run_image: fnproject/python:3.11
+build_image: fnproject/python:3.8.5-dev
+run_image: fnproject/python:3.8.5
 entrypoint: /python/bin/fdk /function/func.py handler
 memory: 256
