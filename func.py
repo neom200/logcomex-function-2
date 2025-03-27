@@ -1,6 +1,5 @@
 import io
 import json
-import logging
 
 import pandas as pd
 import requests
@@ -14,7 +13,6 @@ import json
 import copy
 
 from fdk import response
-logger = logging.getLogger(__name__)
 
 def get_configurations():
     rps = oci.auth.signers.get_resource_principals_signer()
@@ -132,14 +130,14 @@ def save_to_bucket(all_data, client):
             logger.error("ERRO: ", str(e))
 
 def handler(ctx, data: io.BytesIO = None):
-    logging.info("Começando function")
+    print("Começando function",  flush=True)
 
     try:
-        logging.info("Pegando configs")
+        print("Pegando configs",  flush=True)
         client = get_configurations()
         url, headers, payload = get_api_configs()
 
-        logging.info("Coletando dados")
+        print("Coletando dados",  flush=True)
         t0 = time.time()
         full_data = get_data(url, headers, payload)
         t1 = time.time()
@@ -151,10 +149,10 @@ def handler(ctx, data: io.BytesIO = None):
         tempo_total = f"Tempo levado: {hours:02}:{minutes:02}:{seconds:05.2f}"
         logging.debug(tempo_total)
 
-        logging.info("Salvando no bucket")
+        print("Salvando no bucket",  flush=True)
         save_to_bucket(full_data, client)
     except Exception as e:
-        logging.error(f"#> ERRO DA FUNCTION: {str(e)}")
+        print(f"#> ERRO DA FUNCTION: {str(e)}",  flush=True)
 
     return response.Response(
         ctx, response_data=json.dumps(
