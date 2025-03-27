@@ -127,7 +127,7 @@ def save_to_bucket(all_data, client):
             )
             print(f'Salvo LogComex_{k}', flush=True)
         except Exception as e:
-            print(f"ERRO: {str(e)}". flush=True)
+            print(f"ERRO: {str(e)}", flush=True)
 
 def handler(ctx, data: io.BytesIO = None):
     print("Começando function",  flush=True)
