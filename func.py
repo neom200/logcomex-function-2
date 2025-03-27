@@ -120,8 +120,8 @@ def save_to_bucket(all_data, client):
         try:
             pq = all_data[k].to_parquet()
             res = client.put_object(
-                namespace_name=namespace,
-                bucket_name=bucket,
+                namespace_name='grqn05sriwg6',
+                bucket_name='STAGE',
                 object_name=f"LOGCOMEX/DATA_{k.upper()}.parquet",
                 put_object_body=pq
             )
