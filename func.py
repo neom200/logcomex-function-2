@@ -56,11 +56,6 @@ def get_api_configs():
         "product-signature": "shipment-intel-ocean-export-brazil",
         "Content-Type": "application/json"
     }
-    headers['cabotagem'] = {
-        "x-api-key": "350v4qN9QNPWwi0UzBeWIpr9eJYxXrkCNSRedIwA",
-        "product-signature": "shipment-intel-cabotagem",
-        "Content-Type": "application/json"
-    }
     
     payload = {}
     payload['exportacao'] = {
@@ -71,16 +66,6 @@ def get_api_configs():
                 "rule": "date_range",
                 "rule_type": "prefix",
                 "elastic_rule": ".keyword"
-            }
-        ],
-        "page": 1,
-        "size": 5000
-    }
-    payload['cabotagem'] = {
-        "filters": [
-            {
-            "field": "dt_embarque",
-            "value": valores
             }
         ],
         "page": 1,
