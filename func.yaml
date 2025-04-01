@@ -1,6 +1,6 @@
 schema_version: 20180708
 name: logcomex-cabotagem
-version: 0.0.14
+version: 0.0.1
 runtime: python
 build_image: fnproject/python:3.8.5-dev
 run_image: fnproject/python:3.8.5
