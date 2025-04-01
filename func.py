@@ -51,11 +51,6 @@ def get_api_configs():
 
     # shipment-intel-cabotagem | shipment-intel-ocean-export-brazil
     headers = {}
-    headers['exportacao'] = {
-        "x-api-key": "350v4qN9QNPWwi0UzBeWIpr9eJYxXrkCNSRedIwA",
-        "product-signature": "shipment-intel-ocean-export-brazil",
-        "Content-Type": "application/json"
-    }
     headers['cabotagem'] = {
         "x-api-key": "350v4qN9QNPWwi0UzBeWIpr9eJYxXrkCNSRedIwA",
         "product-signature": "shipment-intel-cabotagem",
@@ -63,19 +58,6 @@ def get_api_configs():
     }
     
     payload = {}
-    payload['exportacao'] = {
-        "filters": [
-            {
-                "field": "data_operacao",
-                "value": valores,
-                "rule": "date_range",
-                "rule_type": "prefix",
-                "elastic_rule": ".keyword"
-            }
-        ],
-        "page": 1,
-        "size": 5000
-    }
     payload['cabotagem'] = {
         "filters": [
             {
